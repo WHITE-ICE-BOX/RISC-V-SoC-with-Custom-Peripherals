@@ -2,7 +2,7 @@
 
 ## 📌 專案簡介
 
-本專案實作一個以 **RISC-V Core** 為主體的 SoC，並透過 **Verilog RTL** 撰寫與驗證，逐步加入週邊控制器與匯流排架構。
+本專案實作一個以 **自製RISC-V Core** 為主體的 SoC，並透過 **Verilog RTL** 撰寫與驗證，逐步加入週邊控制器與匯流排架構。
 此設計可支援後續移植 Linux Kernel (如 v4.20)，並能進一步開發自製 driver 以支援 UART / SPI / DMA 等客製化週邊。
 
 ## 🔧 開發環境
@@ -49,3 +49,4 @@ riscv_soc/
 這份 README 可以直接放在 GitHub Repo，也能在履歷上截圖部分內容。
 
 要不要我幫你畫一個 **你自己的 RISC-V SoC 簡化版架構圖**（用 draw\.io 風格，乾淨好看，像你傳的那張）？這樣履歷會更完整。
+
