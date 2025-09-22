@@ -10,12 +10,12 @@ module tb;
         #20;
         reset = 0;
     end
-    //romåˆå§‹å€¼
+    //rom??å?‹å??
     initial begin
-        $readmemb("D:/risc-v_RTOS/rtl/instr_data.txt", risc_v_soc_1.rom_1.rom_mem);
+        $readmemb("D:/risc_v/RISC-V-SoC-with-Custom-Peripherals/riscv32i_core/instr_data.txt", risc_v_soc_1.rom_1.rom_mem);
     end
     initial begin
-    // ç­‰å¾… ROM åˆå§‹åŒ–å®Œæˆ
+    // ç­‰å?? ROM ??å?‹å?–å?Œæ??
     #5;
         $display("=== ROM Init Check ===");
         $display("rom_mem[0] = %b", tb.risc_v_soc_1.rom_1.rom_mem[0]);
@@ -24,7 +24,7 @@ module tb;
         $display("======================");
     end
 
-    always #10 clk = ~clk; // 10ns é€±æœŸ 20ns 50MHz
+    always #10 clk = ~clk; // 10ns ?±æ?? 20ns 50MHz
     risc_v_soc risc_v_soc_1(
         .clk(clk),
         .reset(reset)
@@ -41,7 +41,7 @@ module tb;
     end
 end
     initial begin
-        #1000 $finish;  // æ¨¡æ“¬ 1000ns å¾ŒçµæŸ
+        #1000 $finish;  // æ¨¡æ“¬ 1000ns å¾Œç?æ??
     end
 
 endmodule

@@ -11,6 +11,6 @@ module i_f(
 
     assign instr_addr_out = pc_in;
 
-    assign ainstr_out = instr_rom_if;
+    assign instr_out = instr_rom_if;
     
 endmodule
