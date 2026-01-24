@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 module reg_file(
     //WB才用到
     input wire clk, 

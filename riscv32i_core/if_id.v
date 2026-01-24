@@ -1,9 +1,12 @@
+`timescale 1ns / 1ps
 `include "define.v"
-`include "pipeline_reg.v"
+//`include "pipeline_reg.v"
 // IF/ID pipeline register
 module if_id(
     input wire clk,
     input wire reset,
+    input wire stall, // 新增
+    input wire flush, // 新增
     input wire [31:0] if_addr_in,
     input wire [31:0] if_instr_in,
 
@@ -16,7 +19,9 @@ module if_id(
         .reset(reset),
         .data_in(if_instr_in),
         .reset_data(`INST_NOP),
-        .data_out(if_id_instr_out)
+        .data_out(if_id_instr_out),
+        .stall(stall),
+        .flush(flush)
     );
     // for if_addr
     pipeline_reg #(32) pip_reg2(
@@ -24,7 +29,9 @@ module if_id(
         .reset(reset),
         .data_in(if_addr_in),
         .reset_data(32'b0),
-        .data_out(if_id_addr_out)
+        .data_out(if_id_addr_out),
+        .stall(stall),
+        .flush(flush)
     );
 endmodule
 

@@ -1,4 +1,5 @@
 //rom memory 簡化版一次讀32bits
+`timescale 1ns / 1ps
 module rom(
     input wire [31:0] addr_if_in,
     output reg [31:0] instr_rom_out

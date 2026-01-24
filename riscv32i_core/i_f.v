@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps
 //instruction fetch
 module i_f(
     input wire [31:0]pc_in,
@@ -5,11 +6,11 @@ module i_f(
 
     output wire [31:0]addr_if_rom,
     output wire [31:0]instr_out,
-    output wire [31:0]instr_addr_out
+    output wire [31:0]instr_addr
 );
     assign addr_if_rom = pc_in;
 
-    assign instr_addr_out = pc_in;
+    assign instr_addr = pc_in;
 
     assign instr_out = instr_rom_if;
     
