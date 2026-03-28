@@ -8,14 +8,10 @@ module data_ram(
 );
     reg [31:0] ram [0:1023]; // 1K word
 
-    always @(*) begin
-        // 簡易讀取，address >> 2
-        data_out = ram[addr[31:2]];
-    end
-
     always @(posedge clk) begin
-        if (we) begin
-            ram[addr[31:2]] <= data_in;
-        end
+    if (we) begin
+        ram[addr[31:2]] <= data_in; // 寫入保持不變
+    end
+        data_out <= ram[addr[31:2]];    // 讀取改成同步
     end
 endmodule
