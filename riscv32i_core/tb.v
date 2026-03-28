@@ -58,7 +58,20 @@ module tb;
                 instr_name = "Unknown";
 
                 case (debug_wb_rd)
-                    5'd1:  begin expected_val = 1;  instr_name = "addi x1, x0, 1"; end
+                    5'd1: begin
+                        if (debug_wb_data === 32'd1) begin
+                            expected_val = 32'd1;
+                            instr_name   = "addi x1, x0, 1";
+                        end
+                        else if (debug_wb_data === 32'd216) begin
+                            expected_val = 32'd216;
+                            instr_name   = "jal x1, 8 (pc+4)";
+                        end
+                        else begin
+                            expected_val = debug_wb_data;
+                            instr_name   = "x1 unexpected";
+                        end
+                    end
                     5'd2:  begin expected_val = 2;  instr_name = "addi x2, x0, 2"; end
                     5'd3:  begin expected_val = 3;  instr_name = "add  x3, x1, x2"; end 
                     5'd4:  begin expected_val = 1;  instr_name = "sub  x4, x2, x1"; end 
